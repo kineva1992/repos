@@ -1,0 +1,51 @@
+﻿@model Bookproject.Models.GuestResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RsvForm</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    
+    <form asp-action="RsvForm" method="post">
+        <div asp-validation-summary="All"></div>
+        <div class="fo">
+            <p>
+                <label asp-for="Name"> Your name:</label>
+                <input asp-for="Name" />
+            </p>
+        </div>
+        <div class="form-group">
+            <p>
+                <label asp-for="Email">Your Email</label>
+                <input asp-for="Email" />
+            </p>
+        </div>
+        <div class="form-group">
+            <p>
+                <label asp-for="Phone">Your phone number</label>
+                <input asp-for="Phone" />
+            </p>
+        </div>
+        <div class="form-group">
+            <p>
+                <label>Will you attend?</label>
+                <select asp-for="WillAttend">
+                    <option value="">Chose an option</option>
+                    <option value="true">Yes, I'll be thete</option>
+                    <option value="false">No, I can't come</option>
+                </select>
+            </p>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit RSVP</button>
+        </div>
+    </form>
+</body>
+
+</html>

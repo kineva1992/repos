@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore", "SportsStore\SportsStore.csproj", "{2BB13616-5D64-4E88-BE81-F7926A62DA29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.Tests", "SportsStore.Tests\SportsStore.Tests.csproj", "{6A5D1D4B-B10E-4F33-82CD-D04E76A28843}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BB13616-5D64-4E88-BE81-F7926A62DA29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB13616-5D64-4E88-BE81-F7926A62DA29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB13616-5D64-4E88-BE81-F7926A62DA29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB13616-5D64-4E88-BE81-F7926A62DA29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A5D1D4B-B10E-4F33-82CD-D04E76A28843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A5D1D4B-B10E-4F33-82CD-D04E76A28843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A5D1D4B-B10E-4F33-82CD-D04E76A28843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A5D1D4B-B10E-4F33-82CD-D04E76A28843}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99EED05C-7414-42D6-A312-8604E76EB387}
+	EndGlobalSection
+EndGlobal

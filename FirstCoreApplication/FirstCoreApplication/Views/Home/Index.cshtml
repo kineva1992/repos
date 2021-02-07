@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FirstCoreApplication.Models.Phone>
+@{
+    ViewData["Title"] = "Каталог товаров";
+}
+<h3>Смартфоны</h3>
+<table class="table-condensed">
+    <tr>
+        <td>Модель</td>
+        <td>Производитель</td>
+        <td>Цена</td>
+        <td></td>
+    </tr>
+    @foreach (var phone in Model)
+    {
+        <tr>
+            <td>@phone.Name</td>
+            <td>@phone.Company</td>
+            <td>@phone.Price</td>
+            <td><a href="~/Home/Buy/@phone.id">Купить</a></td>
+        </tr>
+    }
+</table>
+
+<form method="get" action="~/Home/Area">
+    <label>Высота</label>
+    <input type="number" name="height"/>
+    <label>Основание</label>
+    <input type="number" name="altitude" />
+    <input type="submit" name="Отправить" />
+
+</form>

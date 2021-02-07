@@ -1,0 +1,1 @@
+csc.exe /out:..\..\Bin\BytesRoad.Net.Sockets.dll /t:library /r:..\..\Bin\BytesRoad.Diag.dll /recurse:*.cs

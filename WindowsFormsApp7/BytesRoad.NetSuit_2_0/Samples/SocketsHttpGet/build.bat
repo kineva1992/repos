@@ -1,0 +1,2 @@
+resgen SocketsHttpGet.resx SocketsHttpGet.HttpGetForm.resources
+csc.exe /t:winexe /out:..\Bin\SocketsHttpGet.exe /r:..\..\Bin\BytesRoad.Diag.dll /r:..\..\Bin\BytesRoad.Net.Sockets.dll /recurse:*.cs /win32icon:app.ico /resource:SocketsHttpGet.HttpGetForm.resources

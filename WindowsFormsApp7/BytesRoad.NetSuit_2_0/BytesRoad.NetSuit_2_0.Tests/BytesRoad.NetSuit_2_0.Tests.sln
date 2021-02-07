@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BytesRoad.NetSuit_2_0.Tests", "BytesRoad.NetSuit_2_0.Tests\BytesRoad.NetSuit_2_0.Tests.csproj", "{3BB6BBCB-0CAF-4B40-931E-522D2F588CE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoadTools.Ftp", "..\..\..\CoadTools\CoadTools.Ftp\CoadTools.Ftp.csproj", "{6C65787D-204D-4A1C-A159-3935AB19C86D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BB6BBCB-0CAF-4B40-931E-522D2F588CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB6BBCB-0CAF-4B40-931E-522D2F588CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB6BBCB-0CAF-4B40-931E-522D2F588CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB6BBCB-0CAF-4B40-931E-522D2F588CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C65787D-204D-4A1C-A159-3935AB19C86D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C65787D-204D-4A1C-A159-3935AB19C86D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C65787D-204D-4A1C-A159-3935AB19C86D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C65787D-204D-4A1C-A159-3935AB19C86D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

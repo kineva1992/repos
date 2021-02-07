@@ -1,0 +1,30 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <!--Меню-->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="~/Home/Index" class="navbar-brand">Главная</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Основной контент-->
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>© 2015 - MobileStore</p>
+        </footer>
+    </div>
+</body>
+
+</html>

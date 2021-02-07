@@ -1,0 +1,1 @@
+csc.exe /t:exe /out:..\Bin\FtpDownloadFile.exe /r:..\Bin\BytesRoad.Diag.dll /r:..\Bin\BytesRoad.Net.Ftp.dll FtpDownloadFile.cs

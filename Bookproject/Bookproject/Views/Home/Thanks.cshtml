@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <p>
+    <h1>Thanks you, @Model.Name</h1>
+        @if (Model.WillAttend == true) { 
+        @: It's great that you're coming. The drink are alredy in the fridge!
+        }
+        else {
+        @: Sorry to hear that you can't  make it, but thanks for letting us know.
+    }
+    </p>
+    <p> Click <a asp-action="ListResponse">here</a> to see who is coming.</p>
+</body>
+</html>

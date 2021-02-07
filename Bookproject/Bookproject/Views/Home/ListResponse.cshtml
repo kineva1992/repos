@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Bookproject.Models.GuestResponse>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responses</title>
+</head>
+<body>
+    <h2>Here is the list of people attending the party</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Bookproject.Models.GuestResponse r in Model) { 
+            <tr>
+                <th>@r.Name</th>
+                <th>@r.Email</th>
+                <th>@r.Phone</th>
+            </tr>
+            }
+        </tbody>
+
+    </table>
+</body>
+</html>
