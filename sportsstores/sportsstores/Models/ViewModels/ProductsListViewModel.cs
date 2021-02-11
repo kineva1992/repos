@@ -9,6 +9,7 @@ namespace sportsstores.Models.ViewModels
     {
         public IEnumerable<Product> products { get; set; }
         public PadingInfo padingInfo { get; set; }
+        public string CurrentCategory { get; set; }
 
     }
 }
