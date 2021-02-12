@@ -7,6 +7,7 @@ using sportsstores.Models.ViewModels;
 using Moq;
 using Xunit;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace sportsstores.test
 {
@@ -90,6 +91,35 @@ namespace sportsstores.test
             Assert.Equal(2, result.Length);
             Assert.True(result[0].Name == "P2" && result[0].Category == "Cat2");
             Assert.True(result[1].Name == "P4" && result[1].Category == "Cat2");
+        }
+
+        [Fact]
+
+        public void Generate_category_Specific_Product_Count() {
+
+            //Организация теста создание тестовых данных.
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns((new Product[] { 
+            new Product{ProductID = 1, Name = "P1", Category = "Cat1" },
+            new Product{ProductID = 2, Name = "P2", Category = "Cat2" },
+            new Product{ProductID = 3, Name = "P3", Category = "Cat3" },
+            new Product{ProductID = 4, Name = "P4", Category = "Cat4" },
+            new Product{ProductID = 5, Name = "P5", Category = "Cat5" }
+            }).AsQueryable<Product>());
+
+            ProductController target = new ProductController(mock.Object);
+            target.PageSize = 3;
+
+            Func<ViewResult, ProductsListViewModel> GetModel = result =>
+            result?.ViewData?.Model as ProductsListViewModel;
+
+            //Действие
+
+            int? res1 = GetModel(target.List("Cat1"))?.padingInfo.TotalItems;
+            int? res2 = GetModel(target.List("Cat2"))?.padingInfo.TotalItems;
+            int? res3 = GetModel(target.List("Cat3"))?.padingInfo.TotalItems;
+            int? resAll = GetModel(target.List(null))?.padingInfo.TotalItems;
+
         }
     }
 }
