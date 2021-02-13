@@ -85,7 +85,7 @@ namespace sportsstores.test
             targe.AddItem(p1, 2);
 
             //Действие 
-            targe.RemoveLine(p2);
+            targe.AddItem(p2, 1);
 
             //Утверждение
 

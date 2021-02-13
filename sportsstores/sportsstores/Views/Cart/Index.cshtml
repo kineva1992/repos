@@ -1,0 +1,36 @@
+﻿@model CartIndexViewModel
+<h2>Your Cart</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Quelity</th>
+            <th>Item</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.cart.Lines) { 
+        <tr>
+            <td class="text-center">@line.Quantity</td>
+            <td class="text-center">@line.Product.Name</td>
+            <td class="text-center">@line.Product.Price.ToString("C")</td>
+            <td class="text-center">
+            @((line.Quantity * line.Product.Price).ToString("C"))
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.cart.ComputeTotalValue().ToString("C")
+            </td>
+        </tr>
+    </tfoot>
+
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shop</a>
+</div>
