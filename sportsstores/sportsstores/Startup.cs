@@ -22,13 +22,20 @@ namespace sportsstores
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //Подключение к базе данных
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration["Data:SportStoreProducts:ConnectionString"]));
+
             services.AddTransient<IProductRepository,EFProductRepository>();
+            //Передача данных классу SessionCart методу GetCart 
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            //Каждый раз когданеобходим 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //Добавление поддержки MVC
             services.AddMvc();
+            //Добавление возможности кешировать данные
             services.AddMemoryCache();
+            //Добавление возможности Сесиии
             services.AddSession();  
         }
 
