@@ -10,13 +10,24 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var line in Model.cart.Lines) { 
+        @foreach (var line in Model.Cart.Lines) { 
         <tr>
             <td class="text-center">@line.Quantity</td>
             <td class="text-center">@line.Product.Name</td>
             <td class="text-center">@line.Product.Price.ToString("C")</td>
             <td class="text-center">
-            @((line.Quantity * line.Product.Price).ToString("C"))
+                @((line.Quantity * line.Product.Price).ToString("C"))
+            </td>
+            <td>
+                <form asp-action="RemoveFromCart" method="post">
+                    <input type="hidden" name="ProductID"
+                           value="@line.Product.ProductID" />
+                    <input type="hidden" name="returnUrl"
+                           value="@Model.ReturnUrl" />
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Remove
+                    </button>
+                </form>
             </td>
         </tr>
         }
@@ -25,7 +36,7 @@
         <tr>
             <td colspan="3" class="text-right">Total:</td>
             <td class="text-right">
-                @Model.cart.ComputeTotalValue().ToString("C")
+                @Model.Cart.ComputeTotalValue().ToString("C")
             </td>
         </tr>
     </tfoot>
