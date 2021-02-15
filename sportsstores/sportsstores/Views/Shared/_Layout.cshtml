@@ -5,32 +5,54 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     @*<link rel="stylesheet"
-          href="~/lib/bootstrap/dist/css/bootstrap.css"
-          asp-href-include="/lib/bootstrap/dist/**/*.min.css"
-          asp-href-exclude="**/*-reboot*,**/*-grid*" />*@
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        href="~/lib/bootstrap/dist/css/bootstrap.css"
+        asp-href-include="/lib/bootstrap/dist/**/*.min.css"
+        asp-href-exclude="**/*-reboot*,**/*-grid*" />*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-    <link rel="stylesheet" asp-href-include="/lib/font-awesome/css/*.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/*.css" asp-href-include="/lib/font-awesome/css/*.css" />
 
     <title>SportsStore</title>
 </head>
+@*<body>
+        <div>
+            <div class="navbar navbar-dark bg-dark" role="navigation">
+                <div class="row">
+                    <a class="navbar-brand" href="#">SPORTS STORE</a>
+                    <div class="col-4 text-right">
+                        @await Component.InvokeAsync("CartSummary")
+                    </div>
+                </div>
+            </div>
+            <div class="row m-1 р-1">
+                <div id="categories" class="col-3">
+                    @await Component.InvokeAsync("NavigationMenu")
+                </div>
+                <div class="col-9">
+                    @RenderBody()
+                </div>
+            </div>
+
+        </div>
+    </body>
+    </html>*@
 <body>
-    <div>
-        <div class="navbar navbar-dark bg-dark" role="navigation">
-            <div class="row">
-                <a class="navbar-brand" href="#">SPORTS STORE</a>
+    <div class="navbar navbar-inverse bg-inverse" role="navigation">
+        <div class="row">
+            <a class="col navbar-brand" href="#">SPORTS STORE</a>
+            <div class="col-4 text-right">
+                @await Component.InvokeAsync("CartSummary")
             </div>
         </div>
-        <div class="row m-1 р-1">
-            <div id="categories" class="col-3">
-                @await Component.InvokeAsync("NavigationMenu")
-            </div>
-            <div class="col-9">
-                @RenderBody()
-            </div>
+    </div>
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-3">
+            @await Component.InvokeAsync("NavigationMenu")
         </div>
-        
+        <div class="col-9">
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>
