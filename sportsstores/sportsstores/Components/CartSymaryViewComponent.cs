@@ -1,20 +1,43 @@
 ﻿
+//using Microsoft.AspNetCore.Mvc;
+//using sportsstores.Models;
+
+//namespace sportsstores.Components
+//{
+//    public class CartSymaryViewComponent : ViewComponent
+//    {
+//        private Cart cart;
+
+//        public CartSymaryViewComponent(Cart cartService)
+//        {
+//            cart = cartService;
+//        }
+
+//        public IViewComponentResult Invoke() {
+//            return View(cart);
+//        }
+
+//    }
+//}
+
 using Microsoft.AspNetCore.Mvc;
 using sportsstores.Models;
 
-namespace sportsstores.Components
+namespace SportsStore.Components
 {
-    public class CartSymaryViewComponent : ViewComponent
+
+    public class CartSummaryViewComponent : ViewComponent
     {
         private Cart cart;
 
-        public void CartSumaryViewComponent(Cart cartServices) {
-            cart = cartServices;
+        public CartSummaryViewComponent(Cart cartService)
+        {
+            cart = cartService;
         }
 
-        public IViewComponentResult Invike() {
+        public IViewComponentResult Invoke()
+        {
             return View(cart);
         }
-
     }
 }

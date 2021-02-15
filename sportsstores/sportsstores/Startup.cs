@@ -31,6 +31,8 @@ namespace sportsstores
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             //Каждый раз когданеобходим 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //Регистрация службы IOrderRepository
+            services.AddTransient<IOrderRepository, EFOrderRepository>();
             //Добавление поддержки MVC
             services.AddMvc();
             //Добавление возможности кешировать данные
