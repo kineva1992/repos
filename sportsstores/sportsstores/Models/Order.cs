@@ -11,6 +11,8 @@ namespace sportsstores.Models
         public int OrderID { get; set; }
         [BindNever]
         public ICollection<CartLine> Lines { get; set; }
+        //метод для отслеживания заказов
+        public bool Shiped { get; set; }
         public string Name { get; set; }
         [Required(ErrorMessage = "Введите ваше имя")]
         public string Line1 { get; set; }
