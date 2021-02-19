@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using sportsstores.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace sportsstores
 {
@@ -25,6 +26,13 @@ namespace sportsstores
             //Подключение к базе данных
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration["Data:SportStoreProducts:ConnectionString"]));
+            //Строка подключения к IdentityFramework
+            services.AddDbContext<AppIndentityDbContext>(options => 
+            options.UseSqlServer(Configuration["Data:SportStoreIdentity:ConnectionString"]));
+            //Подключение сервисов IndentityFramework
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIndentityDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddTransient<IProductRepository,EFProductRepository>();
             //Передача данных классу SessionCart методу GetCart 
@@ -48,6 +56,7 @@ namespace sportsstores
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
+            app.UseAuthentication();
             app.UseMvc(routers => {
                 routers.MapRoute(
                     name: null,
@@ -73,6 +82,7 @@ namespace sportsstores
                 });
 
             SeedData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

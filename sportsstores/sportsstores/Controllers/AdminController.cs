@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using sportsstores.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace sportsstores.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IProductRepository repository;
@@ -32,7 +34,21 @@ namespace sportsstores.Controllers
                 return View(product);
             }
         }
-        //
+        // Создание нового товара
+
+        public ViewResult Create() => View("Edit", new Product());
+
+        [HttpPost]
+        public IActionResult Delete(int prodictID) {
+            Product deletedProduct = repository.DeleteProduct(prodictID);
+            if (deletedProduct != null)
+            {
+                TempData["message"] = $"{deletedProduct.Name} was deleted";
+            }
+            
+
+            return RedirectToAction("Index");
+        }
 
 
 

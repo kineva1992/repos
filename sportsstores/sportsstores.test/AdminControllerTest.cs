@@ -71,6 +71,32 @@ namespace sportsstores.test
             Assert.Equal(3, p3.ProductID);
         }
 
+        [Fact]
+
+        public void Can_Deleted_Valid_Products() {
+            //Организация - создание объекта
+            Product product = new Product { ProductID = 2, Name = "Test" };
+
+            //Организания создания имитированного хранилища
+
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns((new Product[] { 
+            new Product{ProductID = 1, Name = "P1" },
+            product,
+            new Product{ProductID = 3, Name = "P3" }
+            }).AsQueryable<Product>());
+
+            //Организация - создание экземпляра контроллера
+            AdminController adminController = new AdminController(mock.Object);
+
+            //Организация - действие удаление товара 
+            adminController.Delete(product.ProductID);
+
+            //Проверка действия
+            mock.Verify(m => m.DeleteProduct(product.ProductID));
+        }
+
+
         private T GetViewModel<T>(IActionResult result) where T : class
         {
             return (result as ViewResult)?.ViewData.Model as T;
